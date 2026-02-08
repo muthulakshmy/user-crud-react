@@ -32,7 +32,6 @@ const Dashboard = () => {
     }
 
     const onClose = () => {
-        setUsers([]);
         setEditingUser(null);
         setIsFormOpen(false);
     }
