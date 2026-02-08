@@ -1,16 +1,89 @@
-# React + Vite
+# User CRUD Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple User Management dashboard built with React, Vite, Ant Design, and JSON Server.  
+It supports creating, editing, deleting, and listing users with form validation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React + Vite
+- Ant Design
+- Axios
+- JSON Server (Mock API)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Vercel Deployment link
+https://user-crud-react-ten.vercel.app/
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Clone the repository
+git clone https://github.com/muthulakshmy/user-crud-react
+cd user-crud-dashboard
+
+2. Install dependencies
+npm install
+
+3. Start Mock API (JSON Server)
+npx json-server --watch db.json --port 3001
+
+4. Start Frontend
+npm run dev
+
+
+Frontend runs on:
+
+http://localhost:5173
+
+
+API runs on:
+
+http://localhost:3001/users
+
+Adding New Fields to the Form
+
+To add a new field (example: address):
+
+Update user-form-config.js
+
+{
+  name: "address",
+  label: "Address",
+  required: false,
+  type: "text"
+}
+
+
+JSON Server automatically accepts new fields
+
+Table will show the new data if column is added in user-table.jsx
+
+---
+
+Design Decisions & Assumptions
+
+JSON Server is used as a mock backend
+
+Axios handles API requests
+
+Ant Design Modal used for Create/Edit
+
+Same form reused for Create & Edit
+
+Form fields are config-driven for scalability
+
+---
+
+Mock API
+
+Mock API is powered by JSON Server using db.json.
+
+Example endpoint:
+
+GET    /users
+POST   /users
+PUT    /users/:id
+DELETE /users/:id
+
+

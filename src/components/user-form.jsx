@@ -6,9 +6,6 @@ import { CustomButton } from "../utils/custom-button";
 
 const UserFormModal = ({ open, onClose, onSubmit, initialValues }) => {
   const [form] = Form.useForm();
-
-
-
   const handleFinish = (values) => {
     onSubmit(values);
     form.resetFields();
@@ -66,7 +63,7 @@ const UserFormModal = ({ open, onClose, onSubmit, initialValues }) => {
 
         <div className="flex justify-end gap-2 pt-4">
           <Button onClick={onClose}>Cancel</Button>
-          
+
           <CustomButton
             label={initialValues ? "Save Changes" : "Create User"}
             htmlType="submit"

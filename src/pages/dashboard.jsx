@@ -5,7 +5,7 @@ import {
     updateUser,
     deleteUser,
 } from "../api/user.api";
-import {notification } from "antd";
+import { notification } from "antd";
 import UserTable from "../components/user-table";
 import UserFormModal from "../components/user-form";
 import DeleteUserModal from "../components/delete-user";
@@ -27,10 +27,18 @@ const Dashboard = () => {
     };
 
     const handleCreateUser = () => {
-
         setEditingUser(null);
         setIsFormOpen(true);
+    }
 
+    const onClose = () => {
+        setUsers([]);
+        setEditingUser(null);
+        setIsFormOpen(false);
+    }
+
+    const onCloseDelete = () => {
+        setDeleteUserData(null);
     }
 
     useEffect(() => {
@@ -99,7 +107,7 @@ const Dashboard = () => {
 
                 <UserFormModal
                     open={isFormOpen}
-                    onClose={() => setIsFormOpen(false)}
+                    onClose={() => onClose()}
                     onSubmit={handleSubmit}
                     initialValues={editingUser}
                 />
@@ -107,7 +115,7 @@ const Dashboard = () => {
                 <DeleteUserModal
                     open={!!deleteUserData}
                     user={deleteUserData}
-                    onClose={() => setDeleteUserData(null)}
+                    onClose={() => onCloseDelete()}
                     onConfirm={handleDelete}
                 />
             </div>
