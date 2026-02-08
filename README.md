@@ -25,11 +25,9 @@ cd user-crud-dashboard
 2. Install dependencies
 npm install
 
-3. Start Mock API (JSON Server)
-npx json-server --watch db.json --port 3001
-
-4. Start Frontend
+3. Start Frontend
 npm run dev
+No local backend setup required — API is hosted on mockapi.io
 
 
 Frontend runs on:
@@ -37,13 +35,14 @@ Frontend runs on:
 http://localhost:5173
 
 
-API runs on:
+MOCKAPI :
 
-http://localhost:3001/users
+https://6988be03780e8375a6890e82.mockapi.io/api/v1/users
+
 
 Adding New Fields to the Form
 
-To add a new field (example: address):
+To add a new field (example: address) need to add in mockapi
 
 Update user-form-config.js
 
@@ -55,29 +54,13 @@ Update user-form-config.js
 }
 
 
-JSON Server automatically accepts new fields
+Add the same field in mockapi.io → Users resource.
 
 Table will show the new data if column is added in user-table.jsx
 
 ---
 
-Design Decisions & Assumptions
-
-JSON Server is used as a mock backend
-
-Axios handles API requests
-
-Ant Design Modal used for Create/Edit
-
-Same form reused for Create & Edit
-
-Form fields are config-driven for scalability
-
----
-
 Mock API
-
-Mock API is powered by JSON Server using db.json.
 
 Example endpoint:
 
