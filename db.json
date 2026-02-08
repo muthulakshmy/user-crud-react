@@ -8,25 +8,18 @@
       "email": "eve@example.com"
     },
     {
-      "id": "0427",
-      "firstName": "ddddd",
-      "lastName": "ffff",
-      "phone": "77777777",
-      "email": "dede@gmail.com"
-    },
-    {
-      "id": "2ffe",
-      "firstName": "Muthulakshmy",
-      "lastName": "Ponnuchamy",
-      "phone": "235468942",
-      "email": "lakshmym147@gmail.com"
-    },
-    {
       "id": "5d58",
       "firstName": "sandra",
       "lastName": "ser",
       "phone": "987654321",
       "email": "sandra@gmail.com"
+    },
+    {
+      "id": "5c30",
+      "firstName": "Jack",
+      "lastName": "King",
+      "phone": "9876543219",
+      "email": "jack@gmail.com"
     }
   ]
 }

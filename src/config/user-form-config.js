@@ -15,7 +15,7 @@ export const userFormConfig = [
     name: "phone",
     label: "Phone Number",
     required: true,
-    type: "text",
+    type: "phone",
   },
   {
     name: "email",

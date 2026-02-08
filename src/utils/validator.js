@@ -14,6 +14,7 @@ export class Validator {
   }
 
   phone() {
-    return /^0?[6-9]\d{9}$/.test(this.value);
+    const regex = /^\d{10}$/;
+    return regex.test(this.value);
   }
 }

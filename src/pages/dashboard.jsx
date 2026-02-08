@@ -16,6 +16,7 @@ const Dashboard = () => {
     const [editingUser, setEditingUser] = useState(null);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [deleteUserData, setDeleteUserData] = useState(null);
+    const [value, setValue] = useState("");
 
     const fetchUsers = async () => {
         try {
@@ -38,6 +39,7 @@ const Dashboard = () => {
 
     const onCloseDelete = () => {
         setDeleteUserData(null);
+        setValue("");
     }
 
     useEffect(() => {
@@ -69,7 +71,9 @@ const Dashboard = () => {
             await deleteUser(id);
             notification.success({ message: "User deleted successfully" });
             setDeleteUserData(null);
+            setValue("");
             fetchUsers();
+
         } catch {
             notification.error({ message: "Delete failed" });
         }
@@ -116,6 +120,8 @@ const Dashboard = () => {
                     user={deleteUserData}
                     onClose={() => onCloseDelete()}
                     onConfirm={handleDelete}
+                    value={value}
+                    setValue={setValue}
                 />
             </div>
         </div>

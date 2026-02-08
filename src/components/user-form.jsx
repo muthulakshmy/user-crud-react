@@ -27,7 +27,10 @@ const UserFormModal = ({ open, onClose, onSubmit, initialValues }) => {
           {initialValues ? "Edit User" : "Create User"}
         </span>
       }
-      onCancel={onClose}
+      onCancel={() => {
+        form.resetFields();
+        onClose();
+      }}
       footer={null}
       destroyOnClose
     >
@@ -55,9 +58,21 @@ const UserFormModal = ({ open, onClose, onSubmit, initialValues }) => {
                     : Promise.reject("Invalid email");
                 },
               },
-            ]}
+              field.type === "phone" && {
+                validator: (_, value) => {
+                  const v = new Validator(value);
+                  return v.phone()
+                    ? Promise.resolve()
+                    : Promise.reject("Invalid phone number");
+                },
+              },
+            ].filter(Boolean)}
           >
-            <Input />
+            <Input
+              maxLength={field.type === "phone" ? 10 : undefined}
+              inputMode={field.type === "phone" ? "numeric" : "text"}
+              placeholder={`Enter ${field.label}`}
+            />
           </Form.Item>
         ))}
 

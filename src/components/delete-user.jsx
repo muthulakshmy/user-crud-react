@@ -1,8 +1,7 @@
 import { Modal, Input, Button, Typography } from "antd";
-import { useState } from "react";
 
-const DeleteUserModal = ({ open, onClose, user, onConfirm }) => {
-  const [value, setValue] = useState("");
+const DeleteUserModal = ({ open, onClose, user, onConfirm ,value,setValue }) => {
+  
 
   const isMatch = value === user?.firstName;
 
@@ -27,6 +26,7 @@ const DeleteUserModal = ({ open, onClose, user, onConfirm }) => {
       <div className="flex justify-end gap-2 mt-4">
         <Button onClick={onClose}>Cancel</Button>
         <Button
+          type="primary"
           danger
           disabled={!isMatch}
           onClick={() => onConfirm(user.id)}
